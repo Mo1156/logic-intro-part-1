@@ -1,6 +1,12 @@
+function change_Score () {
+    change_Score()
+}
 function gameOver () {
     gameOver()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    game.over(false)
+})
 function _49ers () {
     _49Ers = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -32,12 +38,6 @@ function _49ers () {
         controller.moveSprite(spaceship, 100 - (2 - info.score()), 100 - (2 - info.score()))
     }
 }
-function change_Score () {
-    change_Score()
-}
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    game.over(false)
-})
 let extra_velocity = 0
 let _49Ers: Sprite = null
 let spaceship: Sprite = null
@@ -67,7 +67,7 @@ info.setScore(0)
 game.onUpdateInterval(2000, function () {
     _49ers()
 })
-// score board 
+// score board
 game.onUpdateInterval(2000, function () {
     info.changeScoreBy(1)
 })
